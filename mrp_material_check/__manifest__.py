@@ -1,10 +1,10 @@
 {
     'name': 'MRP Material Check',
-    'version': '19.0.1.0.0',
+    'version': '17.0.1.0.0',
     'category': 'Manufacturing',
     'summary': 'Block or warn before producing when components are insufficient — popup lists each shortage.',
     'description': """
-MRP Material Check for Odoo 19 (Free / LGPL-3)
+MRP Material Check for Odoo 17 (Free / LGPL-3)
 ===============================================
 - Intercepts the "Produce" button on manufacturing orders
 - Checks if every component has enough stock at the source location

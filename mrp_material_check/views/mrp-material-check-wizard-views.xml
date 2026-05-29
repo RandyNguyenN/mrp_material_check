@@ -21,13 +21,13 @@
                     <field name="can_bypass" invisible="1"/>
 
                     <field name="line_ids" readonly="1">
-                        <list string="Material Shortages" decoration-danger="shortage &gt; 0">
+                        <tree string="Material Shortages" decoration-danger="shortage &gt; 0">
                             <field name="product_id" string="Component"/>
                             <field name="qty_needed" string="Needed"/>
                             <field name="qty_available" string="In Stock"/>
                             <field name="shortage" string="Shortage" widget="float"/>
                             <field name="uom_id" string="Unit"/>
-                        </list>
+                        </tree>
                     </field>
 
                     <div class="alert alert-danger mt-3" role="alert"
