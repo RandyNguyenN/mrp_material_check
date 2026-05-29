@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mrp_material_check_wizard_form" model="ir.ui.view">
+        <field name="name">mrp.material.check.wizard.form</field>
+        <field name="model">mrp.material.check.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Insufficient Materials">
+                <sheet>
+                    <div class="alert alert-warning o_form_no_button" role="alert">
+                        <h4 class="alert-heading">
+                            <i class="fa fa-exclamation-triangle"/> Insufficient Materials
+                        </h4>
+                        <p class="mb-0">
+                            The following components do not have enough stock at the
+                            source location. Please review before proceeding.
+                        </p>
+                    </div>
+
+                    <field name="mode" invisible="1"/>
+                    <field name="can_bypass" invisible="1"/>
+
+                    <field name="line_ids" readonly="1">
+                        <list string="Material Shortages" decoration-danger="shortage &gt; 0">
+                            <field name="product_id" string="Component"/>
+                            <field name="qty_needed" string="Needed"/>
+                            <field name="qty_available" string="In Stock"/>
+                            <field name="shortage" string="Shortage" widget="float"/>
+                            <field name="uom_id" string="Unit"/>
+                        </list>
+                    </field>
+
+                    <div class="alert alert-danger mt-3" role="alert"
+                         invisible="mode != 'block' or can_bypass">
+                        <i class="fa fa-lock"/> Only a <strong>Manufacturing Manager</strong>
+                        can bypass this check. Contact your manager to proceed.
+                    </div>
+                </sheet>
+
+                <footer>
+                    <button name="action_proceed"
+                            type="object"
+                            string="Continue Anyway"
+                            class="btn-warning"
+                            invisible="not can_bypass"/>
+                    <button name="action_cancel"
+                            type="object"
+                            string="Cancel"
+                            class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

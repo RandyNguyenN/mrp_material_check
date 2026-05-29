@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MRP Material Check — Odoo 19</title>
+</head>
+<body>
+
+<!-- ============================================================
+     SECTION 1 — BRAND HEADER
+     ============================================================ -->
+<section class="sh_counter_section position-relative" style="margin-top:20px; margin-bottom:15px; padding:50px 0 0 0">
+  <div class="container">
+    <div style="width:100%; background-color:#f5f3ff; padding:30px; border-radius:35px">
+
+      <!-- Logo + title row -->
+      <div class="row align-items-center mb-4">
+        <div class="col-lg-8 col-md-8 d-flex align-items-center gap-3">
+          <img src="icon.png" alt="MRP Material Check Icon" style="width:72px; height:72px; border-radius:16px; box-shadow:0 4px 16px rgba(99,102,241,.25)">
+          <div>
+            <div style="font-size:26px; font-weight:800; color:#1e293b; letter-spacing:-.02em">MRP Material Check</div>
+            <div style="font-size:14px; color:#6366f1; font-weight:600; margin-top:2px">by Randy Nguyen</div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 d-none d-md-flex justify-content-end align-items-center gap-2">
+          <span style="background:#6366f1; color:#fff; padding:6px 16px; border-radius:20px; font-size:13px; font-weight:700">✓ Community</span>
+          <span style="background:#8b5cf6; color:#fff; padding:6px 16px; border-radius:20px; font-size:13px; font-weight:700">✓ Enterprise</span>
+        </div>
+      </div>
+
+      <!-- KPI cards -->
+      <div class="row mt-2">
+        <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 card-group">
+          <div class="w-100 shadow" style="padding:24px 20px; border-radius:12px; background-color:#fff; margin:10px 0">
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <div style="font-size:14px; color:#64748b; font-weight:600; margin-bottom:4px">Check Modes</div>
+                <div style="font-size:28px; font-weight:800; color:#6366f1">2</div>
+              </div>
+              <div style="width:52px; height:52px; border-radius:50%; background:#eef2ff; display:flex; align-items:center; justify-content:center; font-size:24px">🛡️</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 card-group">
+          <div class="w-100 shadow" style="padding:24px 20px; border-radius:12px; background-color:#fff; margin:10px 0">
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <div style="font-size:14px; color:#64748b; font-weight:600; margin-bottom:4px">Odoo Version</div>
+                <div style="font-size:28px; font-weight:800; color:#6366f1">19.0</div>
+              </div>
+              <div style="width:52px; height:52px; border-radius:50%; background:#eef2ff; display:flex; align-items:center; justify-content:center; font-size:24px">⚡</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 card-group">
+          <div class="w-100 shadow" style="padding:24px 20px; border-radius:12px; background-color:#fff; margin:10px 0">
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <div style="font-size:14px; color:#64748b; font-weight:600; margin-bottom:4px">License</div>
+                <div style="font-size:28px; font-weight:800; color:#6366f1">LGPL-3</div>
+              </div>
+              <div style="width:52px; height:52px; border-radius:50%; background:#eef2ff; display:flex; align-items:center; justify-content:center; font-size:24px">🔓</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12 card-group">
+          <div class="w-100 shadow" style="padding:24px 20px; border-radius:12px; background-color:#fff; margin:10px 0">
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <div style="font-size:14px; color:#64748b; font-weight:600; margin-bottom:4px">Dependency</div>
+                <div style="font-size:28px; font-weight:800; color:#6366f1">mrp</div>
+              </div>
+              <div style="width:52px; height:52px; border-radius:50%; background:#eef2ff; display:flex; align-items:center; justify-content:center; font-size:24px">📦</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA row -->
+      <div class="row justify-content-between align-items-center mt-2">
+        <div class="col-lg-6">
+          <a href="mailto:nextstep.vina@gmail.com" style="text-decoration:none">
+            <div style="background:#6366f1; color:#fff; padding:12px 24px; border-radius:50px; display:inline-flex; align-items:center; gap:10px; font-size:15px; font-weight:700">
+              <span class="fa fa-envelope"></span>
+              Contact / Support &nbsp;·&nbsp; nextstep.vina@gmail.com
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-6 d-none d-lg-flex justify-content-end gap-2 align-items-center">
+          <span style="border:1px solid #6366f1; color:#6366f1; padding:6px 16px; border-radius:8px; font-size:13px; font-weight:600">Warn Mode</span>
+          <span style="border:1px solid #6366f1; color:#6366f1; padding:6px 16px; border-radius:8px; font-size:13px; font-weight:600">Block Mode</span>
+          <span style="border:1px solid #6366f1; color:#6366f1; padding:6px 16px; border-radius:8px; font-size:13px; font-weight:600">Free Forever</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 2 — MODULE DESCRIPTION
+     ============================================================ -->
+<section style="padding:60px 0 20px 0">
+  <div class="container">
+    <div class="text-center">
+      <h4 style="font-size:31px; font-weight:700; color:#1e293b; margin-bottom:10px">MRP Material Check</h4>
+      <div style="display:block; height:3px; width:80px; background:linear-gradient(90deg,#6366f1,#8b5cf6); margin:16px auto 32px auto; border-radius:4px"></div>
+      <p style="color:#475569; font-size:18px; max-width:700px; margin:0 auto; line-height:1.7">
+        Stop negative stock from silently corrupting your books. A zero-config module that intercepts
+        the <strong>Produce</strong> button on manufacturing orders and shows a clear popup listing
+        <strong>exactly which components are short</strong> — with two modes:
+        <strong>Warn</strong> (anyone can continue) and <strong>Block</strong> (only Managers can bypass).
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 2b — PAIN POINTS & SOLUTION
+     ============================================================ -->
+<section style="padding:20px 0 50px 0">
+  <div class="container">
+    <div class="row g-4">
+
+      <div class="col-md-6">
+        <div style="background:#fff5f5; border:1.5px solid #fecaca; border-radius:16px; padding:32px; height:100%">
+          <div style="font-size:22px; font-weight:800; color:#dc2626; margin-bottom:20px; display:flex; align-items:center; gap:10px">
+            <span style="font-size:28px">😓</span> The Problem
+          </div>
+          <ul style="list-style:none; padding:0; margin:0">
+            <li style="display:flex; gap:12px; margin-bottom:16px; align-items:flex-start">
+              <span style="color:#ef4444; font-size:18px; flex-shrink:0; margin-top:1px">✗</span>
+              <span style="color:#374151; font-size:15px; line-height:1.6">Odoo lets you click "Produce" even when components are completely out of stock — creating negative inventory instantly.</span>
+            </li>
+            <li style="display:flex; gap:12px; margin-bottom:16px; align-items:flex-start">
+              <span style="color:#ef4444; font-size:18px; flex-shrink:0; margin-top:1px">✗</span>
+              <span style="color:#374151; font-size:15px; line-height:1.6">Negative stock flows straight into accounting entries — your COGS and inventory valuations become unreliable.</span>
+            </li>
+            <li style="display:flex; gap:12px; margin-bottom:16px; align-items:flex-start">
+              <span style="color:#ef4444; font-size:18px; flex-shrink:0; margin-top:1px">✗</span>
+              <span style="color:#374151; font-size:15px; line-height:1.6">Operators don't know which component is short or by how much — they find out only after the damage is done.</span>
+            </li>
+            <li style="display:flex; gap:12px; align-items:flex-start">
+              <span style="color:#ef4444; font-size:18px; flex-shrink:0; margin-top:1px">✗</span>
+              <span style="color:#374151; font-size:15px; line-height:1.6">No role-based protection — any warehouse user can accidentally (or unknowingly) validate an order with zero stock.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius:16px; padding:32px; height:100%">
+          <div style="font-size:22px; font-weight:800; color:#16a34a; margin-bottom:20px; display:flex; align-items:center; gap:10px">
+            <span style="font-size:28px">🎯</span> The Solution
+          </div>
+          <ul style="list-style:none; padding:0; margin:0">
+            <li style="display:flex; gap:12px; margin-bottom:16px; align-items:flex-start">
+              <span style="color:#22c55e; font-size:18px; flex-shrink:0; margin-top:1px">✓</span>
+              <span style="color:#374151; font-size:15px; line-height:1.6">Intercepts "Produce All" before any stock move — checks each component's quantity at the source location in real time.</span>
+            </li>
+            <li style="display:flex; gap:12px; margin-bottom:16px; align-items:flex-start">
+              <span style="color:#22c55e; font-size:18px; flex-shrink:0; margin-top:1px">✓</span>
+              <span style="color:#374151; font-size:15px; line-height:1.6">Popup table lists each short component: <strong>Needed / In Stock / Shortage / Unit</strong> — no guesswork.</span>
+            </li>
+            <li style="display:flex; gap:12px; margin-bottom:16px; align-items:flex-start">
+              <span style="color:#22c55e; font-size:18px; flex-shrink:0; margin-top:1px">✓</span>
+              <span style="color:#374151; font-size:15px; line-height:1.6"><strong>Warn mode:</strong> shows the popup, operator decides. <strong>Block mode:</strong> only Manufacturing Managers can press "Continue Anyway".</span>
+            </li>
+            <li style="display:flex; gap:12px; align-items:flex-start">
+              <span style="color:#22c55e; font-size:18px; flex-shrink:0; margin-top:1px">✓</span>
+              <span style="color:#374151; font-size:15px; line-height:1.6">Zero configuration — install, choose your mode in Manufacturing Settings, and go.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 2c — DEMO GIF
+     ============================================================ -->
+<section style="padding:10px 0 40px 0">
+  <div class="container">
+    <div class="col-md-12">
+      <img class="img-responsive rounded" style="width:100%; border:2px solid #6366f1; border-radius:14px; box-shadow:0 8px 32px rgba(99,102,241,.18)" src="banner.gif" alt="MRP Material Check Demo">
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 3 — KEY FEATURES
+     ============================================================ -->
+<section style="padding:50px 0">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h4 style="font-size:28px; font-weight:700; color:#1e293b; margin-bottom:10px">Key Features</h4>
+      <div style="display:block; height:3px; width:60px; background:linear-gradient(90deg,#6366f1,#8b5cf6); margin:12px auto 0 auto; border-radius:4px"></div>
+    </div>
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <div class="p-4 shadow rounded h-100 d-flex align-items-center" style="border:1px solid #6366f1; border-radius:12px !important">
+          <div style="border:1px solid #6366f1; padding:10px; border-radius:8px; margin-right:20px; display:flex; min-width:60px; min-height:60px; align-items:center; justify-content:center; background:#eef2ff">
+            <span style="font-size:28px">⚠️</span>
+          </div>
+          <span style="font-size:16px; color:#1e293b; font-weight:600; letter-spacing:.5px">Real-time component check — each shortage line shows Needed / In Stock / Shortage / Unit before production starts.</span>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="p-4 shadow rounded h-100 d-flex align-items-center" style="border:1px solid #6366f1; border-radius:12px !important">
+          <div style="border:1px solid #6366f1; padding:10px; border-radius:8px; margin-right:20px; display:flex; min-width:60px; min-height:60px; align-items:center; justify-content:center; background:#eef2ff">
+            <span style="font-size:28px">🛡️</span>
+          </div>
+          <span style="font-size:16px; color:#1e293b; font-weight:600; letter-spacing:.5px">Block mode — locks out regular operators; only Manufacturing Managers can override the shortage gate.</span>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="p-4 shadow rounded h-100 d-flex align-items-center" style="border:1px solid #6366f1; border-radius:12px !important">
+          <div style="border:1px solid #6366f1; padding:10px; border-radius:8px; margin-right:20px; display:flex; min-width:60px; min-height:60px; align-items:center; justify-content:center; background:#eef2ff">
+            <span style="font-size:28px">🔔</span>
+          </div>
+          <span style="font-size:16px; color:#1e293b; font-weight:600; letter-spacing:.5px">Warn mode — shows the popup with full detail but lets the operator decide to continue, preserving flexibility.</span>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="p-4 shadow rounded h-100 d-flex align-items-center" style="border:1px solid #6366f1; border-radius:12px !important">
+          <div style="border:1px solid #6366f1; padding:10px; border-radius:8px; margin-right:20px; display:flex; min-width:60px; min-height:60px; align-items:center; justify-content:center; background:#eef2ff">
+            <span style="font-size:28px">⚙️</span>
+          </div>
+          <span style="font-size:16px; color:#1e293b; font-weight:600; letter-spacing:.5px">One setting in Manufacturing › Configuration › Settings — switch between Warn and Block at any time.</span>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="p-4 shadow rounded h-100 d-flex align-items-center" style="border:1px solid #6366f1; border-radius:12px !important">
+          <div style="border:1px solid #6366f1; padding:10px; border-radius:8px; margin-right:20px; display:flex; min-width:60px; min-height:60px; align-items:center; justify-content:center; background:#eef2ff">
+            <span style="font-size:28px">📍</span>
+          </div>
+          <span style="font-size:16px; color:#1e293b; font-weight:600; letter-spacing:.5px">Location-aware — checks stock at the move's actual source location, not just global on-hand.</span>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="p-4 shadow rounded h-100 d-flex align-items-center" style="border:1px solid #6366f1; border-radius:12px !important">
+          <div style="border:1px solid #6366f1; padding:10px; border-radius:8px; margin-right:20px; display:flex; min-width:60px; min-height:60px; align-items:center; justify-content:center; background:#eef2ff">
+            <span style="font-size:28px">🔓</span>
+          </div>
+          <span style="font-size:16px; color:#1e293b; font-weight:600; letter-spacing:.5px">100% Free · LGPL-3 — only requires the standard <code>mrp</code> module. No paid tiers, no expiry.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 4 — SETUP GUIDE WITH SCREENSHOTS
+     ============================================================ -->
+<section style="padding:50px 0">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h4 style="font-size:28px; font-weight:700; color:#1e293b; margin-bottom:10px">Setup Guide</h4>
+      <div style="display:block; height:3px; width:60px; background:linear-gradient(90deg,#6366f1,#8b5cf6); margin:12px auto 0 auto; border-radius:4px"></div>
+    </div>
+
+    <p style="color:#1e293b; font-size:18px; margin-bottom:20px; font-weight:600">
+      1) Place the <strong>mrp_material_check</strong> folder in your Odoo custom addons directory and restart the server.
+    </p>
+
+    <p style="color:#1e293b; font-size:18px; margin-bottom:20px; font-weight:600">
+      2) Enable Developer Mode — go to <strong>Settings → Activate Developer Mode</strong>, then click <strong>Apps → Update Apps List</strong>.
+    </p>
+
+    <p style="color:#1e293b; font-size:18px; margin-bottom:20px; font-weight:600">
+      3) Search for <strong>"MRP Material Check"</strong> in Apps and click <strong>Install</strong>.
+    </p>
+
+    <p style="color:#1e293b; font-size:18px; margin-bottom:16px; font-weight:600">
+      4) Go to <strong>Manufacturing → Configuration → Settings</strong> and choose your preferred mode under <strong>Insufficient Material Behaviour</strong>.
+    </p>
+    <div class="col-md-12">
+      <img class="img-responsive rounded" style="width:100%; border:1px solid #6366f1; border-radius:12px" src="screenshots/01-settings-warn-mode.png" alt="Manufacturing Settings — Insufficient Material Behaviour">
+    </div>
+    <p style="color:#64748b; font-size:14px; text-align:center; margin:10px 0 32px 0; font-style:italic">Manufacturing Settings — "Insufficient Material Behaviour" dropdown shows Warn and Block options</p>
+
+    <p style="color:#1e293b; font-size:18px; margin-bottom:16px; font-weight:600">
+      5) Open any confirmed Manufacturing Order with missing components and click <strong>Produce All</strong>.
+    </p>
+    <div class="col-md-12">
+      <img class="img-responsive rounded" style="width:100%; border:1px solid #6366f1; border-radius:12px" src="screenshots/04-confirmed-production.png" alt="Confirmed Production Order with Not Available components">
+    </div>
+    <p style="color:#64748b; font-size:14px; text-align:center; margin:10px 0 32px 0; font-style:italic">Confirmed production order — "Component Status: Not Available" is already visible before clicking Produce All</p>
+
+    <p style="color:#1e293b; font-size:18px; margin-bottom:16px; font-weight:600">
+      6) The popup appears instantly, listing each short component with Needed / In Stock / Shortage. In <strong>Warn mode</strong> you can continue; in <strong>Block mode</strong> only Managers see "Continue Anyway".
+    </p>
+    <div class="col-md-12">
+      <img class="img-responsive rounded" style="width:100%; border:1px solid #6366f1; border-radius:12px" src="screenshots/05-warn-mode-shortage-popup.png" alt="Shortage Popup — Warn Mode">
+    </div>
+    <p style="color:#64748b; font-size:14px; text-align:center; margin:10px 0 32px 0; font-style:italic">Warn mode popup — shows Demo Steel Rod: Needed 3.00 / In Stock 0.00 / Shortage 3.00 with "Continue Anyway" button</p>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 5 — FAQ
+     ============================================================ -->
+<section style="padding:50px 0">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h4 style="font-size:28px; font-weight:700; color:#1e293b; margin-bottom:10px">Frequently Asked Questions</h4>
+      <div style="display:block; height:3px; width:60px; background:linear-gradient(90deg,#6366f1,#8b5cf6); margin:12px auto 0 auto; border-radius:4px"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="accordion" id="accordion_faq">
+
+          <div style="margin:1rem 0">
+            <div class="card-header" data-bs-toggle="collapse" data-bs-target="#faq1" style="background-color:#f8f8f8; border:none; border-radius:10px 10px 0 0; padding:14px 24px; cursor:pointer">
+              <a class="card-title text-decoration-none" style="font-size:17px; font-weight:600; color:#1e293b">What is the difference between Warn and Block modes?</a>
+            </div>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#accordion_faq" style="border:1px solid #f8f8f8; border-radius:0 0 10px 10px">
+              <p style="padding:14px 24px; font-size:15px; color:#64748b; line-height:1.65; margin:0">
+                In <strong>Warn mode</strong>, any user sees the shortage popup but can click "Continue Anyway" to proceed regardless.
+                In <strong>Block mode</strong>, the "Continue Anyway" button is only visible to users who hold the
+                <strong>Manufacturing Manager</strong> group. Regular operators see a lock message and must contact a manager.
+              </p>
+            </div>
+          </div>
+
+          <div style="margin:1rem 0">
+            <div class="card-header collapsed" data-bs-toggle="collapse" data-bs-target="#faq2" style="background-color:#f8f8f8; border:none; border-radius:10px 10px 0 0; padding:14px 24px; cursor:pointer">
+              <a class="card-title text-decoration-none" style="font-size:17px; font-weight:600; color:#1e293b">What stock quantity does the check use?</a>
+            </div>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#accordion_faq" style="border:1px solid #f8f8f8; border-radius:0 0 10px 10px">
+              <p style="padding:14px 24px; font-size:15px; color:#64748b; line-height:1.65; margin:0">
+                The module checks <code>qty_available</code> at the move's specific <strong>source location</strong>
+                (e.g. WH/Stock), not the global on-hand. Unit-of-measure conversion is applied automatically when the
+                move's UoM differs from the product's base UoM.
+              </p>
+            </div>
+          </div>
+
+          <div style="margin:1rem 0">
+            <div class="card-header collapsed" data-bs-toggle="collapse" data-bs-target="#faq3" style="background-color:#f8f8f8; border:none; border-radius:10px 10px 0 0; padding:14px 24px; cursor:pointer">
+              <a class="card-title text-decoration-none" style="font-size:17px; font-weight:600; color:#1e293b">Does this affect existing manufacturing workflows or reports?</a>
+            </div>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#accordion_faq" style="border:1px solid #f8f8f8; border-radius:0 0 10px 10px">
+              <p style="padding:14px 24px; font-size:15px; color:#64748b; line-height:1.65; margin:0">
+                No. The module only intercepts <code>button_mark_done()</code> on <code>mrp.production</code>.
+                All other workflows (backorder creation, immediate transfer wizard, work orders, MPS) are untouched.
+                Uninstalling removes the check cleanly with no data left behind.
+              </p>
+            </div>
+          </div>
+
+          <div style="margin:1rem 0">
+            <div class="card-header collapsed" data-bs-toggle="collapse" data-bs-target="#faq4" style="background-color:#f8f8f8; border:none; border-radius:10px 10px 0 0; padding:14px 24px; cursor:pointer">
+              <a class="card-title text-decoration-none" style="font-size:17px; font-weight:600; color:#1e293b">Can I change the mode without reinstalling?</a>
+            </div>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#accordion_faq" style="border:1px solid #f8f8f8; border-radius:0 0 10px 10px">
+              <p style="padding:14px 24px; font-size:15px; color:#64748b; line-height:1.65; margin:0">
+                Yes — the mode is stored as a system parameter. Go to
+                <strong>Manufacturing → Configuration → Settings → Insufficient Material Behaviour</strong>
+                and change the dropdown any time. The change takes effect immediately on the next production order.
+              </p>
+            </div>
+          </div>
+
+          <div style="margin:1rem 0">
+            <div class="card-header collapsed" data-bs-toggle="collapse" data-bs-target="#faq5" style="background-color:#f8f8f8; border:none; border-radius:10px 10px 0 0; padding:14px 24px; cursor:pointer">
+              <a class="card-title text-decoration-none" style="font-size:17px; font-weight:600; color:#1e293b">What happens if all components have sufficient stock?</a>
+            </div>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#accordion_faq" style="border:1px solid #f8f8f8; border-radius:0 0 10px 10px">
+              <p style="padding:14px 24px; font-size:15px; color:#64748b; line-height:1.65; margin:0">
+                Nothing extra happens. The module exits immediately and Odoo's standard production validation
+                proceeds as normal — no popup, no delay.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 6 — SUPPORT
+     ============================================================ -->
+<section style="padding:40px 0 60px 0">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h4 style="font-size:28px; font-weight:700; color:#1e293b; margin-bottom:10px">Support</h4>
+      <div style="display:block; height:3px; width:60px; background:linear-gradient(90deg,#6366f1,#8b5cf6); margin:12px auto 0 auto; border-radius:4px"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <ul style="padding:0; list-style:none">
+          <li class="border rounded" style="padding:24px; margin-bottom:16px; border-color:#6366f1 !important; border-radius:12px">
+            <a href="mailto:nextstep.vina@gmail.com" style="text-decoration:none; color:#1e293b; font-size:17px; font-weight:600; display:flex; align-items:center; gap:12px">
+              <span class="fa fa-envelope" style="color:#6366f1; font-size:22px"></span>
+              Email support: <strong style="color:#6366f1">nextstep.vina@gmail.com</strong>
+            </a>
+          </li>
+          <li class="border rounded" style="padding:24px; margin-bottom:16px; border-color:#6366f1 !important; border-radius:12px">
+            <div style="font-size:16px; color:#475569; line-height:1.65">
+              <strong style="color:#1e293b">Response time:</strong> We aim to respond within 1–2 business days.
+              Please include your Odoo version and a description of the issue.
+            </div>
+          </li>
+          <li class="border rounded" style="padding:24px; border-color:#6366f1 !important; border-radius:12px">
+            <div style="font-size:16px; color:#475569; line-height:1.65">
+              <strong style="color:#1e293b">License:</strong> LGPL-3 — free to use, modify, and redistribute.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

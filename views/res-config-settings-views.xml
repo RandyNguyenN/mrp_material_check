@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_res_config_settings_mrp_material_check" model="ir.ui.view">
+        <field name="name">res.config.settings.mrp.material.check</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="mrp.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Append a new setting inside the Operations block -->
+            <xpath expr="//block[@name='process_operations_setting_container']" position="inside">
+                <setting id="mrp_material_check_mode"
+                         string="Insufficient Material Behaviour"
+                         help="Show a warning popup or fully block production when components are short.">
+                    <field name="mrp_material_check_mode"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
