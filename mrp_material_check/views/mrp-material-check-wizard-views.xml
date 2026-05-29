@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <form string="Insufficient Materials">
                 <sheet>
-                    <div class="alert alert-warning o_form_no_button" role="alert">
+                    <div class="alert alert-warning o_form_no_button" role="alertdialog" aria-live="polite">
                         <h4 class="alert-heading">
                             <i class="fa fa-exclamation-triangle"/> Insufficient Materials
                         </h4>
@@ -30,7 +30,7 @@
                         </list>
                     </field>
 
-                    <div class="alert alert-danger mt-3" role="alert"
+                    <div class="alert alert-danger mt-3" role="alertdialog" aria-live="assertive"
                          invisible="mode != 'block' or can_bypass">
                         <i class="fa fa-lock"/> Only a <strong>Manufacturing Manager</strong>
                         can bypass this check. Contact your manager to proceed.
