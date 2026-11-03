@@ -10,18 +10,16 @@ class TestMrpMaterialCheck(TransactionCase):
         super().setUpClass()
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
 
-        # Storable product (finished good) — Odoo 19: type='consu' + is_storable=True
+        # Storable product (finished good) — Odoo 17: type='product'
         cls.product_finished = cls.env['product.product'].create({
             'name': 'Test Finished Product',
-            'type': 'consu',
-            'is_storable': True,
+            'type': 'product',
         })
 
         # Storable component — must be storable so qty_available is tracked
         cls.component = cls.env['product.product'].create({
             'name': 'Test Component',
-            'type': 'consu',
-            'is_storable': True,
+            'type': 'product',
         })
 
         cls.uom_unit = cls.env.ref('uom.product_uom_unit')
@@ -132,7 +130,7 @@ class TestMrpMaterialCheck(TransactionCase):
         mrp_user = self.env['res.users'].create({
             'name': 'MRP User',
             'login': 'mrp_user_test_block@test.com',
-            'group_ids': [(6, 0, [self.env.ref('mrp.group_mrp_user').id])],
+            'groups_id': [(6, 0, [self.env.ref('mrp.group_mrp_user').id])],
         })
         result = production.with_user(mrp_user).button_mark_done()
 
@@ -148,7 +146,7 @@ class TestMrpMaterialCheck(TransactionCase):
         manager = self.env['res.users'].create({
             'name': 'MRP Manager',
             'login': 'mrp_manager_test_block@test.com',
-            'group_ids': [(6, 0, [self.env.ref('mrp.group_mrp_manager').id])],
+            'groups_id': [(6, 0, [self.env.ref('mrp.group_mrp_manager').id])],
         })
         result = production.with_user(manager).button_mark_done()
 
