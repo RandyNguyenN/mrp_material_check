@@ -13,8 +13,9 @@ MRP Material Check for Odoo 17 (Free / LGPL-3)
     * Warn — shows the popup but lets anyone continue
     * Block — only users with the Manufacturing Manager role can bypass
     """,
-    'author': 'Randy Nguyen',
-    'website': '',
+    'author': 'SunMesa Labs',
+    'website': 'https://odoo.sunmesalabs.com',
+    'support': 'randy@sunmesalabs.com',
     'license': 'LGPL-3',
     'depends': ['mrp'],
     'data': [
