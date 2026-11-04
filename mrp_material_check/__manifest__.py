@@ -26,5 +26,5 @@ MRP Material Check for Odoo 17 (Free / LGPL-3)
     'installable': True,
     'application': False,
     'auto_install': False,
-    'images': ['static/description/banner.gif'],
+    'images': ['static/description/cover.gif', 'static/description/banner.gif'],
 }
